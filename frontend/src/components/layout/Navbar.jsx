@@ -35,32 +35,31 @@ const Navbar = () => {
 
   const navBg = scrolled
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-md border-b border-gray-200/60 dark:border-gray-800/60'
-    : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm';
+    : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm';
 
   return (
     <nav className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${navBg}`}>
-      {/* Single row — max-width wider so everything fits */}
-      <div className="max-w-screen-2xl mx-auto px-3 xl:px-6">
-        <div className="flex items-center h-14 gap-2">
+      <div className="max-w-screen-2xl mx-auto px-4 xl:px-8">
+        <div className="flex items-center h-16 gap-3">
 
           {/* ── Logo ── */}
-          <Link to="/" className="flex items-center gap-2 group shrink-0 mr-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-earth-500 rounded-lg flex items-center justify-center shadow group-hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-black text-xs tracking-tight">IE</span>
+          <Link to="/" className="flex items-center gap-2.5 group shrink-0 mr-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-earth-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+              <span className="text-white font-black text-sm tracking-tight">IE</span>
             </div>
             <div className="hidden sm:block leading-tight">
-              <p className="text-sm font-bold text-gray-900 dark:text-white leading-none">IEEE</p>
-              <p className="text-[9px] text-gray-500 dark:text-gray-400 leading-none mt-0.5">
+              <p className="text-base font-bold text-gray-900 dark:text-white leading-none">IEEE</p>
+              <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-none mt-0.5">
                 Geosciences &amp; Remote Sensing
               </p>
             </div>
           </Link>
 
-          {/* ── Desktop nav — all links in one row ── */}
+          {/* ── Desktop nav links ── */}
           <div className="hidden lg:flex items-center flex-1 min-w-0">
             {NAV_LINKS.map(({ path, label, exact }) => (
               <Link key={path} to={path}
-                className={`whitespace-nowrap px-2 py-1.5 rounded-md text-xs font-medium transition-all duration-150 ${
+                className={`whitespace-nowrap px-2.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-150 ${
                   isActive(path, exact)
                     ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/25'
                     : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/70'
@@ -71,24 +70,24 @@ const Navbar = () => {
           </div>
 
           {/* ── Right actions ── */}
-          <div className="flex items-center gap-1 ml-auto shrink-0">
+          <div className="flex items-center gap-1.5 ml-auto shrink-0">
 
             {/* Search */}
             <Link to="/search" aria-label="Search"
-              className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-              <Search className="w-4 h-4" />
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              <Search className="w-[18px] h-[18px]" />
             </Link>
 
-            {/* Login button — "Login" text, no dark/light toggle here */}
+            {/* Login button */}
             <Link to="/admin/login"
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-600 hover:bg-primary-700 active:scale-95 text-white text-xs font-semibold transition-all shadow-sm">
+              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 active:scale-95 text-white text-[13px] font-semibold transition-all shadow-sm">
               <Lock className="w-3.5 h-3.5" />
               Login
             </Link>
 
-            {/* Hamburger — mobile only */}
+            {/* Hamburger */}
             <button onClick={() => setIsOpen(v => !v)} aria-label="Menu"
-              className="lg:hidden p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              className="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
