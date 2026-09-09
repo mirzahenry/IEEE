@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#0052cc"/>
+  <!-- Earth globe circle -->
+  <circle cx="32" cy="32" r="18" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Latitude lines -->
+  <ellipse cx="32" cy="32" rx="10" ry="18" fill="none" stroke="white" stroke-width="1.5"/>
+  <!-- Horizontal lines -->
+  <line x1="14" y1="26" x2="50" y2="26" stroke="white" stroke-width="1.2"/>
+  <line x1="14" y1="32" x2="50" y2="32" stroke="white" stroke-width="1.2"/>
+  <line x1="14" y1="38" x2="50" y2="38" stroke="white" stroke-width="1.2"/>
+  <!-- Satellite orbit arc -->
+  <path d="M 20 16 Q 32 8 44 16" fill="none" stroke="#7ec8e3" stroke-width="2" stroke-dasharray="3,2"/>
+  <!-- Satellite dot -->
+  <circle cx="44" cy="16" r="3" fill="#7ec8e3"/>
+</svg>

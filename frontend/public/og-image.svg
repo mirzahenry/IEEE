@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#001029"/>
+  <circle cx="900" cy="315" r="280" fill="none" stroke="#0052cc" stroke-width="2" opacity="0.4"/>
+  <circle cx="900" cy="315" r="200" fill="none" stroke="#0052cc" stroke-width="1.5" opacity="0.3"/>
+  <ellipse cx="900" cy="315" rx="120" ry="200" fill="none" stroke="#0052cc" stroke-width="1.5" opacity="0.3"/>
+  <line x1="620" y1="260" x2="1180" y2="260" stroke="#0052cc" stroke-width="1" opacity="0.25"/>
+  <line x1="620" y1="315" x2="1180" y2="315" stroke="#0052cc" stroke-width="1" opacity="0.25"/>
+  <line x1="620" y1="370" x2="1180" y2="370" stroke="#0052cc" stroke-width="1" opacity="0.25"/>
+  <rect x="80" y="220" width="8" height="8" rx="2" fill="#0052cc" opacity="0.6"/>
+  <text x="120" y="270" font-family="Inter,sans-serif" font-size="68" font-weight="800" fill="white">GRSS</text>
+  <text x="120" y="340" font-family="Inter,sans-serif" font-size="28" font-weight="400" fill="#93c5fd">Geosciences &amp; Remote Sensing Society</text>
+  <text x="120" y="395" font-family="Inter,sans-serif" font-size="20" font-weight="300" fill="#64748b">Exploring Earth · Advancing Technology · Inspiring Innovation</text>
+</svg>

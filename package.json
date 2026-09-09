@@ -1,0 +1,23 @@
+{
+  "name": "grss-website",
+  "version": "1.0.0",
+  "description": "Geosciences and Remote Sensing Society — Official University Student Society Website",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend":  "cd backend  && npm run dev",
+    "build":        "cd frontend && npm run build",
+    "preview":      "cd frontend && npm run preview",
+    "install:all":  "cd frontend && npm install && cd ../backend && npm install && cd .."
+  },
+  "keywords": [
+    "geosciences", "remote-sensing", "gis",
+    "university", "student-society", "react", "supabase"
+  ],
+  "author": "GRSS Development Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm":  ">=9.0.0"
+  }
+}
