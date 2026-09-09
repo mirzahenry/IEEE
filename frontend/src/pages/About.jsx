@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Globe, Satellite, Map, BookOpen, Users, Lightbulb, Target, Eye, CheckCircle } from 'lucide-react';
 import SectionHeader from '../components/common/SectionHeader';
+import useSettings from '../hooks/useSettings';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -8,6 +9,7 @@ const fadeUp = {
 };
 
 const About = () => {
+  const { settings: s } = useSettings();
   const objectives = [
     'Promote awareness of geosciences and remote sensing among students',
     'Organize workshops, seminars, and training sessions on GIS and earth observation',
@@ -44,11 +46,9 @@ const About = () => {
         <div className="container-custom text-center">
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <Satellite className="w-16 h-16 mx-auto mb-6 text-primary-300" />
-            <h1 className="heading-xl mb-6">About GRSS</h1>
+            <h1 className="heading-xl mb-6">About {s.society_short_name || 'IEEE'}</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              The Geosciences and Remote Sensing Society is a student-driven organization
-              dedicated to advancing knowledge in earth sciences, remote sensing, GIS,
-              and geospatial technologies.
+              {s.about_text || 'The IEEE Geosciences and Remote Sensing Society is a student-driven organization dedicated to advancing knowledge in earth sciences, remote sensing, GIS, and geospatial technologies.'}
             </p>
           </motion.div>
         </div>
@@ -67,8 +67,7 @@ const About = () => {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                To foster innovation and research in geosciences and remote sensing technologies among students,
-                empowering them with the skills and knowledge to address real-world environmental challenges.
+                {s.mission || 'To foster innovation and research in geosciences and remote sensing technologies among students, empowering them with the skills and knowledge to address real-world environmental challenges.'}
               </p>
             </motion.div>
 
@@ -81,8 +80,7 @@ const About = () => {
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
               </div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                To be a leading student society in earth observation and geospatial sciences,
-                recognized for our contributions to research, education, and technological advancement.
+                {s.vision || 'To be a leading student society in earth observation and geospatial sciences, recognized for our contributions to research, education, and technological advancement.'}
               </p>
             </motion.div>
           </div>

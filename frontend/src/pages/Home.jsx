@@ -10,6 +10,7 @@ import { getLatestAnnouncements } from '../services/announcementsService';
 import { formatDate, truncateText } from '../utils/helpers';
 import SectionHeader from '../components/common/SectionHeader';
 import Badge from '../components/common/Badge';
+import useSettings from '../hooks/useSettings';
 
 // Animated counter component
 const Counter = ({ end, suffix = '+', duration = 2000 }) => {
@@ -41,6 +42,7 @@ const fadeUp = {
 };
 
 const Home = () => {
+  const { settings: s } = useSettings();
   const [stats, setStats] = useState({ events: 25, projects: 15, achievements: 20, members: 150 });
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
@@ -125,7 +127,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-32 text-center text-white">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-sm font-medium mb-8">
-              <Satellite className="w-4 h-4" /> Geosciences & Remote Sensing Society
+              <Satellite className="w-4 h-4" /> {s.society_name || 'Geosciences & Remote Sensing Society'}
             </span>
           </motion.div>
 
@@ -138,13 +140,14 @@ const Home = () => {
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-xl md:text-2xl mb-6 text-gray-300 max-w-3xl mx-auto font-light">
-            Inspiring the Next Generation of Geospatial Innovators.
+            {s.tagline || 'Inspiring the Next Generation of Geospatial Innovators.'}
           </motion.p>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto">
-            Join us in advancing knowledge in earth sciences, GIS, remote sensing, and
-            geospatial technologies through research, innovation, and collaboration.
+            {s.about_text
+              ? s.about_text.slice(0, 160) + (s.about_text.length > 160 ? '…' : '')
+              : 'Join us in advancing knowledge in earth sciences, GIS, remote sensing, and geospatial technologies through research, innovation, and collaboration.'}
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}

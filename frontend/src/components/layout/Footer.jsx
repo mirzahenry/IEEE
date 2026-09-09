@@ -38,10 +38,14 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center gap-3 mb-5 group">
               <div className="w-11 h-11 bg-gradient-to-br from-primary-600 to-earth-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <span className="text-white font-black text-base">GR</span>
+                <span className="text-white font-black text-base">
+                  {(s.society_short_name || 'IEEE').slice(0, 2)}
+                </span>
               </div>
               <div>
-                <p className="text-white font-bold text-lg leading-none">GRSS</p>
+                <p className="text-white font-bold text-lg leading-none">
+                  {s.society_short_name || 'IEEE'}
+                </p>
                 <p className="text-[10px] text-gray-500 mt-0.5">Geosciences &amp; Remote Sensing</p>
               </div>
             </Link>
