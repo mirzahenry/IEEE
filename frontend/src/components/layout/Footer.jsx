@@ -51,9 +51,7 @@ const Footer = () => {
             </Link>
 
             <p className="text-sm leading-relaxed mb-5 text-gray-500">
-              {s.about_text
-                ? s.about_text.slice(0, 130) + (s.about_text.length > 130 ? '…' : '')
-                : 'Exploring Earth. Advancing Technology. Inspiring the Next Generation of Geospatial Innovators.'}
+              A student-driven IEEE chapter shaping the future of remote sensing and geospatial technology.
             </p>
 
             {socials.length > 0 && (
