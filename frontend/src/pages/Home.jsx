@@ -145,9 +145,7 @@ const Home = () => {
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
             className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto">
-            {s.about_text
-              ? s.about_text.slice(0, 160) + (s.about_text.length > 160 ? '…' : '')
-              : 'Join us in advancing knowledge in earth sciences, GIS, remote sensing, and geospatial technologies through research, innovation, and collaboration.'}
+            {s.about_text || 'Join us in advancing knowledge in earth sciences, GIS, remote sensing, and geospatial technologies through research, innovation, and collaboration.'}
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
