@@ -72,9 +72,11 @@ const AdminLayout = ({ children }) => {
       {/* Logo */}
       <div className="h-16 flex items-center justify-between px-5 border-b border-gray-100 dark:border-gray-700/60 flex-shrink-0">
         <Link to="/admin" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-earth-500 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-            <span className="text-white font-black text-sm">IE</span>
-          </div>
+          <img
+            src="/logo.png"
+            alt="IEEE Logo"
+            className="w-8 h-8 object-contain group-hover:scale-105 transition-transform"
+          />
           <div className="leading-none">
             <p className="text-sm font-bold text-gray-900 dark:text-white">IEEE Admin</p>
             <p className="text-[10px] text-gray-400 mt-0.5">Control Panel</p>

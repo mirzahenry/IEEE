@@ -37,11 +37,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <div className="w-11 h-11 bg-gradient-to-br from-primary-600 to-earth-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <span className="text-white font-black text-base">
-                  {(s.society_short_name || 'IEEE').slice(0, 2)}
-                </span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="IEEE Logo"
+                className="w-11 h-11 object-contain group-hover:scale-105 transition-transform"
+              />
               <div>
                 <p className="text-white font-bold text-lg leading-none">
                   {s.society_short_name || 'IEEE'}

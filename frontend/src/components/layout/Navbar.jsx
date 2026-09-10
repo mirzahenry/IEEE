@@ -44,9 +44,11 @@ const Navbar = () => {
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0 mr-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-earth-500 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-black text-sm tracking-tight">IE</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="IEEE Logo"
+              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-200"
+            />
             <div className="hidden sm:block leading-tight">
               <p className="text-base font-bold text-gray-900 dark:text-white leading-none">IEEE</p>
               <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-none mt-0.5">
