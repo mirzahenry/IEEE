@@ -132,19 +132,19 @@ const Home = () => {
           </motion.div>
 
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Exploring{' '}
-            <span className="bg-gradient-to-r from-primary-400 to-earth-400 bg-clip-text text-transparent">Earth</span>.
-            <br />Advancing Technology.
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+            Inspiring{' '}
+            <span className="bg-gradient-to-r from-primary-400 to-earth-400 bg-clip-text text-transparent">Innovation</span>.
+            <br />Empowering Tomorrow.
           </motion.h1>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-xl md:text-2xl mb-6 text-gray-300 max-w-3xl mx-auto font-light">
-            Inspiring Innovation. Empowering Tomorrow.
+            className="text-lg md:text-xl mb-4 text-gray-400 max-w-2xl mx-auto font-light">
+            Exploring Earth. Advancing Technology.
           </motion.p>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto">
+            className="text-base md:text-lg mb-12 text-gray-500 max-w-2xl mx-auto">
             A student-driven IEEE chapter empowering the next generation through technology, research, leadership, and collaboration.
           </motion.p>
 
