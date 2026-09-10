@@ -9,7 +9,7 @@ const DEFAULT_SETTINGS = {
   tagline:            'Exploring Earth. Advancing Technology. Inspiring the Next Generation.',
   university_name:    'FAST National University of Computer & Emerging Sciences - Chiniot-Faisalabad Campus',
   department:         'IEEE Student Branch',
-  about_text:         'The IEEE Geosciences and Remote Sensing Society (GRSS) is a student-led organization dedicated to advancing knowledge in earth sciences, remote sensing, GIS, and geospatial technologies.',
+  about_text:         'A student-driven IEEE chapter dedicated to exploring Earth through remote sensing, GIS, and geospatial innovation — building research, projects, and community around understanding our planet.',
   mission:            'To foster innovation and excellence in geosciences and remote sensing research among students, equipping them with skills to address real-world environmental and geospatial challenges.',
   vision:             'To become the premier student society in earth observation and geospatial sciences, recognized nationally for research contributions and technological innovation.',
   email:              'info.cfd@nu.edu.pk',
