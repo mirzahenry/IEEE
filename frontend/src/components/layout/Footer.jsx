@@ -46,7 +46,7 @@ const Footer = () => {
                 <p className="text-white font-bold text-lg leading-none">
                   {s.society_short_name || 'IEEE'}
                 </p>
-                <p className="text-[10px] text-gray-500 mt-0.5">Geosciences &amp; Remote Sensing</p>
+                <p className="text-[10px] text-gray-500 mt-0.5">Students Branch Fast cfd</p>
               </div>
             </Link>
 
