@@ -12,8 +12,8 @@ import SectionHeader from '../components/common/SectionHeader';
 import Badge from '../components/common/Badge';
 import useSettings from '../hooks/useSettings';
 
-// Animated counter component
-const Counter = ({ end, suffix = '+', duration = 2000 }) => {
+// Animated counter component — no suffix, shows exact count
+const Counter = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -30,7 +30,7 @@ const Counter = ({ end, suffix = '+', duration = 2000 }) => {
     requestAnimationFrame(step);
   }, [inView, end, duration]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span ref={ref}>{count}</span>;
 };
 
 const fadeUp = {
@@ -43,7 +43,7 @@ const fadeUp = {
 
 const Home = () => {
   const { settings: s } = useSettings();
-  const [stats, setStats] = useState({ events: 25, projects: 15, achievements: 20, members: 150 });
+  const [stats, setStats] = useState({ events: 0, projects: 0, achievements: 0, members: 0 });
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [announcements, setAnnouncements] = useState([]);
   const [featuredProjects, setFeaturedProjects] = useState([]);
