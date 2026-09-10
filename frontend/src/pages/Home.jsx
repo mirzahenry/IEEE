@@ -233,19 +233,21 @@ const Home = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
                 IEEE (Institute of Electrical and Electronics Engineers) is the world's largest professional technical organization dedicated to advancing technology for the benefit of humanity. With a global community of engineers, researchers, educators, and students, IEEE provides a platform for innovation, knowledge sharing, professional development, and technological excellence.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 IEEE Student Branches connect students with this global community and create opportunities to learn, lead, and innovate. Through technical workshops, seminars, competitions, conferences, networking opportunities, and collaborative projects, IEEE helps students transform ideas into practical solutions and prepare for the challenges of tomorrow.
               </p>
+              <p className="text-primary-600 dark:text-primary-400 font-semibold text-lg mb-4">Our IEEE Community</p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: Map, label: 'GIS & Mapping' },
-                  { icon: Satellite, label: 'Remote Sensing' },
-                  { icon: Globe, label: 'Earth Observation' },
-                  { icon: BookOpen, label: 'Research' },
+                  { icon: Rocket,   label: 'Technology & Innovation',    desc: 'Exploring emerging technologies and developing innovative solutions.'          },
+                  { icon: BookOpen, label: 'Learning & Development',     desc: 'Building technical knowledge and professional skills beyond the classroom.'    },
+                  { icon: Users,    label: 'Collaboration & Networking', desc: 'Connecting students with professionals, researchers, and industry leaders.'     },
+                  { icon: Star,     label: 'Leadership & Impact',        desc: 'Empowering students to lead initiatives and create meaningful impact.'          },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
+                  <div key={i} className="flex flex-col gap-2 p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
                     <item.icon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{item.label}</span>
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white">{item.label}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
