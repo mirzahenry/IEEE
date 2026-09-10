@@ -231,15 +231,15 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <span className="inline-block text-primary-600 dark:text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3">About GRSS</span>
+              <span className="inline-block text-primary-600 dark:text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3">About IEEE</span>
               <h2 className="heading-lg mb-6 text-gray-900 dark:text-white">
-                Pioneering Geospatial Research & Innovation
+                Advancing Technology. Empowering Humanity.
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
-                The Geosciences and Remote Sensing Society is a student-driven organization dedicated to advancing knowledge in earth sciences, remote sensing, GIS, and geospatial technologies.
+                IEEE (Institute of Electrical and Electronics Engineers) is the world's largest professional technical organization dedicated to advancing technology for the benefit of humanity. With a global community of engineers, researchers, educators, and students, IEEE provides a platform for innovation, knowledge sharing, professional development, and technological excellence.
               </p>
               <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                We bridge academic learning with real-world applications through workshops, research projects, field visits, and competitions — empowering students to become the next generation of earth scientists and geospatial innovators.
+                IEEE Student Branches connect students with this global community and create opportunities to learn, lead, and innovate. Through technical workshops, seminars, competitions, conferences, networking opportunities, and collaborative projects, IEEE helps students transform ideas into practical solutions and prepare for the challenges of tomorrow.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
