@@ -127,7 +127,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-32 text-center text-white">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-sm font-medium mb-8">
-              <Satellite className="w-4 h-4" /> {s.society_name || 'Geosciences & Remote Sensing Society'}
+              <Satellite className="w-4 h-4" /> FAST NUCES · IEEE GRSS Student Chapter
             </span>
           </motion.div>
 
