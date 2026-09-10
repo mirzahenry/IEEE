@@ -127,7 +127,7 @@ const Home = () => {
         <div className="container-custom relative z-10 py-32 text-center text-white">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-sm font-medium mb-8">
-              <Satellite className="w-4 h-4" /> FAST NUCES · IEEE GRSS Student Chapter
+              <Satellite className="w-4 h-4" /> IEEE Students Branch
             </span>
           </motion.div>
 
@@ -139,8 +139,13 @@ const Home = () => {
           </motion.h1>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto font-light">
-            A student-driven IEEE chapter shaping the future of remote sensing and geospatial technology.
+            className="text-xl md:text-2xl mb-6 text-gray-300 max-w-3xl mx-auto font-light">
+            Inspiring Innovation. Empowering Tomorrow.
+          </motion.p>
+
+          <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
+            className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto">
+            A student-driven IEEE chapter empowering the next generation through technology, research, leadership, and collaboration.
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}

@@ -50,9 +50,9 @@ const Navbar = () => {
               className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-200"
             />
             <div className="hidden sm:block leading-tight">
-              <p className="text-base font-bold text-gray-900 dark:text-white leading-none">IEEE</p>
+              <p className="text-base font-bold text-gray-900 dark:text-white leading-none">ieee</p>
               <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-none mt-0.5">
-                Geosciences &amp; Remote Sensing
+                Students Branch Fast cfd
               </p>
             </div>
           </Link>
