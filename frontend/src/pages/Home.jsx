@@ -262,10 +262,10 @@ const Home = () => {
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
               className="grid grid-cols-2 gap-4">
               {[
-                { title: 'Mission', text: 'Foster innovation and research in geosciences and remote sensing technologies among students.', icon: Rocket, color: 'from-primary-600 to-primary-700' },
-                { title: 'Vision', text: 'Be a leading student society in earth observation and geospatial sciences.', icon: Globe, color: 'from-earth-600 to-earth-700' },
-                { title: 'Research', text: 'Conduct cutting-edge projects in GIS, satellite imagery, and environmental monitoring.', icon: Satellite, color: 'from-blue-600 to-blue-700' },
-                { title: 'Community', text: 'Build a network of passionate geoscientists and remote sensing professionals.', icon: Users, color: 'from-purple-600 to-purple-700' },
+                { title: 'Mission',    text: 'Empower students through technology, innovation, learning, and leadership.',                                                        icon: Rocket, color: 'from-primary-600 to-primary-700' },
+                { title: 'Vision',     text: 'Build a globally connected community of future engineers and technology leaders.',                                                  icon: Globe,  color: 'from-earth-600 to-earth-700'   },
+                { title: 'Innovation', text: 'Promote creativity, technical excellence, and solutions to real-world challenges.',                                                 icon: Satellite, color: 'from-blue-600 to-blue-700'  },
+                { title: 'Community',  text: 'Connect students, professionals, and researchers through collaboration and shared knowledge.',                                      icon: Users,  color: 'from-purple-600 to-purple-700' },
               ].map((card, i) => (
                 <motion.div key={i} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}
                   className="p-5 rounded-xl bg-white dark:bg-gray-800 shadow-md border border-gray-100 dark:border-gray-700">
