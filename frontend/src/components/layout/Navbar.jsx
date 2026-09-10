@@ -40,14 +40,14 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${navBg}`}>
       <div className="max-w-screen-2xl mx-auto px-4 xl:px-8">
-        <div className="flex items-center h-28 gap-3">
+        <div className="flex items-center h-16 gap-3">
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center gap-2.5 group shrink-0 mr-3">
             <img
               src="/logo.png"
               alt="IEEE Logo"
-              className="w-24 h-24 object-contain group-hover:scale-105 transition-transform duration-200"
+              className="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-200"
             />
             <div className="hidden sm:block leading-tight">
               <p className="text-base font-bold text-gray-900 dark:text-white leading-none">IEEE</p>
