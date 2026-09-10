@@ -140,7 +140,7 @@ const Home = () => {
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-xl md:text-2xl mb-6 text-gray-300 max-w-3xl mx-auto font-light">
-            {s.tagline || 'Inspiring the Next Generation of Geospatial Innovators.'}
+            A student-driven IEEE chapter shaping the future of remote sensing and geospatial technology.
           </motion.p>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
