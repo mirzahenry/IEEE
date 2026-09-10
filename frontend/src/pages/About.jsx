@@ -46,7 +46,7 @@ const About = () => {
         <div className="container-custom text-center">
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <Satellite className="w-16 h-16 mx-auto mb-6 text-primary-300" />
-            <h1 className="heading-xl mb-6">About {s.society_short_name || 'IEEE'}</h1>
+            <h1 className="heading-xl mb-6">About GRSS</h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
               {s.about_text || 'The IEEE Geosciences and Remote Sensing Society is a student-driven organization dedicated to advancing knowledge in earth sciences, remote sensing, GIS, and geospatial technologies.'}
             </p>
