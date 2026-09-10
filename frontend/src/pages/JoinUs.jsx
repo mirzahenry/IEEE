@@ -10,7 +10,7 @@ const fadeUp = {
   visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } }),
 };
 
-const POSITIONS = [
+const DEFAULT_POSITIONS = [
   'General Member',
   'Event Volunteer',
   'Research Team',
@@ -29,10 +29,28 @@ const BENEFITS = [
 ];
 
 const JoinUs = () => {
-  const [positions, setPositions] = useState(POSITIONS);
+  const [positions, setPositions] = useState(DEFAULT_POSITIONS);
   const [submitted, setSubmitted] = useState(false);
   const [loading,   setLoading]   = useState(false);
   const [errors,    setErrors]    = useState({});
+
+  // Load positions from Supabase on mount
+  useEffect(() => {
+    const loadPositions = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('site_settings')
+          .select('value')
+          .eq('key', 'join_positions')
+          .single();
+        if (!error && data?.value) {
+          const parsed = JSON.parse(data.value);
+          if (Array.isArray(parsed) && parsed.length > 0) setPositions(parsed);
+        }
+      } catch {}
+    };
+    loadPositions();
+  }, []);
 
   const [form, setForm] = useState({
     full_name:         '',

@@ -37,8 +37,10 @@ const JoinApplications = () => {
   const fetchApplications = async () => {
     setLoading(true);
     try {
-      let q = supabase.from('membership_applications').select('*').order('created_at', { ascending: false });
-      const { data, error } = await q;
+      const { data, error } = await supabase
+        .from('membership_applications')
+        .select('*')
+        .order('created_at', { ascending: false });
       if (error) throw error;
       setApplications(data || []);
     } catch (err) {
@@ -46,15 +48,31 @@ const JoinApplications = () => {
     } finally { setLoading(false); }
   };
 
-  const loadPositions = () => {
-    const saved = localStorage.getItem('grss_join_positions');
-    if (saved) { try { setPositions(JSON.parse(saved)); } catch {} }
+  const loadPositions = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('site_settings')
+        .select('value')
+        .eq('key', 'join_positions')
+        .single();
+      if (!error && data?.value) {
+        const parsed = JSON.parse(data.value);
+        if (Array.isArray(parsed) && parsed.length > 0) setPositions(parsed);
+      }
+    } catch {}
   };
 
-  const savePositions = (list) => {
+  const savePositions = async (list) => {
     setPositions(list);
-    localStorage.setItem('grss_join_positions', JSON.stringify(list));
-    toast.success('Positions updated!');
+    try {
+      const { error } = await supabase
+        .from('site_settings')
+        .upsert({ key: 'join_positions', value: JSON.stringify(list), type: 'json' }, { onConflict: 'key' });
+      if (error) throw error;
+      toast.success('Positions saved!');
+    } catch (err) {
+      toast.error('Failed to save positions');
+    }
   };
 
   const addPosition = () => {
@@ -261,7 +279,7 @@ const JoinApplications = () => {
           </div>
 
           <p className="text-xs text-gray-400 mt-4">
-            Changes are saved automatically to your browser. Refresh the Join Us page to see updates.
+            Changes are saved to the database and will appear on the Join Us form immediately.
           </p>
         </div>
       )}
