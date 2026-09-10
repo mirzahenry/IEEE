@@ -139,13 +139,8 @@ const Home = () => {
           </motion.h1>
 
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-xl md:text-2xl mb-6 text-gray-300 max-w-3xl mx-auto font-light">
+            className="text-xl md:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto font-light">
             A student-driven IEEE chapter shaping the future of remote sensing and geospatial technology.
-          </motion.p>
-
-          <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={3}
-            className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto">
-            {s.about_text || 'Join us in advancing knowledge in earth sciences, GIS, remote sensing, and geospatial technologies through research, innovation, and collaboration.'}
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={4}
