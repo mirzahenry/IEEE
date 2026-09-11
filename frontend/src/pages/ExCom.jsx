@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Mail, Linkedin, Instagram } from 'lucide-react';
 import { getExcomMembers } from '../services/excomService';
-import SectionHeader from '../components/common/SectionHeader';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import EmptyState from '../components/common/EmptyState';
 
@@ -14,21 +13,13 @@ const ExCom = () => {
     getExcomMembers().then(setMembers).catch(console.error).finally(() => setLoading(false));
   }, []);
 
-  // Group by position, sorted by display_order
-  const grouped = members.reduce((acc, member) => {
-    const pos   = member.excom_positions?.title         || 'Other';
-    const order = member.excom_positions?.display_order ?? 99;
-    if (!acc[pos]) acc[pos] = { members: [], order };
-    acc[pos].members.push(member);
-    return acc;
-  }, {});
-
-  const sortedPositions = Object.entries(grouped)
-    .sort((a, b) => a[1].order - b[1].order);
-
-  // First position = President (shown centered)
-  const presidentEntry = sortedPositions[0];
-  const rest = sortedPositions.slice(1);
+  // Sort all members by position display_order then by their own display_order
+  const sorted = [...members].sort((a, b) => {
+    const posA = a.excom_positions?.display_order ?? 99;
+    const posB = b.excom_positions?.display_order ?? 99;
+    if (posA !== posB) return posA - posB;
+    return (a.display_order ?? 0) - (b.display_order ?? 0);
+  });
 
   return (
     <div className="min-h-screen pt-20">
@@ -53,48 +44,17 @@ const ExCom = () => {
             : members.length === 0
               ? <EmptyState icon={Users} title="No members found" description="ExCom members will appear here once added." />
               : (
-                <>
-                  {/* ── President — centered ── */}
-                  {presidentEntry && (
-                    <div className="mb-14">
-                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">
-                        {presidentEntry[0]}
-                      </h2>
-                      <div className="flex justify-center gap-6 flex-wrap">
-                        {presidentEntry[1].members.map((member, i) => (
-                          <motion.div key={member.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.05 }}
-                            className="w-56">
-                            <MemberCard member={member} featured />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* ── Rest — 2 per row ── */}
-                  {rest.map(([posTitle, { members: posMembers }]) => (
-                    <div key={posTitle} className="mb-12">
-                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">
-                        {posTitle}
-                      </h2>
-                      <div className="grid grid-cols-2 gap-6 max-w-2xl">
-                        {posMembers.map((member, i) => (
-                          <motion.div key={member.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.05 }}>
-                            <MemberCard member={member} />
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
+                <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+                  {sorted.map((member, i) => (
+                    <motion.div key={member.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}>
+                      <MemberCard member={member} />
+                    </motion.div>
                   ))}
-                </>
+                </div>
               )
           }
         </div>
@@ -103,47 +63,44 @@ const ExCom = () => {
   );
 };
 
-const MemberCard = ({ member, featured = false }) => (
-  <div className={`card group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${featured ? 'p-8' : 'p-5'}`}>
+const MemberCard = ({ member }) => (
+  <div className="card group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-6 h-full">
     {/* Photo */}
-    <div className={`rounded-full overflow-hidden mx-auto mb-3 border-4 border-primary-100 dark:border-primary-900/50 group-hover:border-primary-400 transition-colors shadow-md ${featured ? 'w-32 h-32' : 'w-24 h-24'}`}>
+    <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4 border-4 border-primary-100 dark:border-primary-900/50 group-hover:border-primary-400 transition-colors shadow-md">
       {member.photo_url
         ? <img src={member.photo_url} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         : <div className="w-full h-full bg-gradient-to-br from-primary-600 to-earth-600 flex items-center justify-center">
-            <span className={`text-white font-bold ${featured ? 'text-4xl' : 'text-2xl'}`}>{member.name.charAt(0)}</span>
+            <span className="text-white font-bold text-3xl">{member.name.charAt(0)}</span>
           </div>
       }
     </div>
 
     <div className="text-center">
-      <h3 className={`font-bold text-gray-900 dark:text-white leading-tight mb-0.5 ${featured ? 'text-xl' : 'text-base'}`}>{member.name}</h3>
-      <p className={`text-primary-600 dark:text-primary-400 font-medium mb-1 ${featured ? 'text-sm' : 'text-xs'}`}>
+      <h3 className="font-bold text-gray-900 dark:text-white text-base leading-tight mb-1">{member.name}</h3>
+      <p className="text-primary-600 dark:text-primary-400 font-medium text-sm mb-1">
         {member.excom_positions?.title}
       </p>
       {member.department && <p className="text-xs text-gray-500 dark:text-gray-400">{member.department}</p>}
       {member.batch      && <p className="text-xs text-gray-400 dark:text-gray-500">Batch: {member.batch}</p>}
-      {member.bio && featured && (
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed line-clamp-3">{member.bio}</p>
-      )}
 
       {/* Social Icons */}
-      <div className="flex justify-center gap-1.5 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="flex justify-center gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {member.email && (
           <a href={`mailto:${member.email}`}
-            className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-primary-600 flex items-center justify-center transition-colors">
-            <Mail className="w-3.5 h-3.5 text-gray-600 dark:text-gray-400" />
+            className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-primary-600 flex items-center justify-center transition-colors">
+            <Mail className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           </a>
         )}
         {member.linkedin_url && (
           <a href={member.linkedin_url} target="_blank" rel="noopener noreferrer"
-            className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-blue-600 flex items-center justify-center transition-colors">
-            <Linkedin className="w-3.5 h-3.5 text-gray-600 dark:text-gray-400" />
+            className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-blue-600 flex items-center justify-center transition-colors">
+            <Linkedin className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           </a>
         )}
         {member.instagram_url && (
           <a href={member.instagram_url} target="_blank" rel="noopener noreferrer"
-            className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-pink-600 flex items-center justify-center transition-colors">
-            <Instagram className="w-3.5 h-3.5 text-gray-600 dark:text-gray-400" />
+            className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-pink-600 flex items-center justify-center transition-colors">
+            <Instagram className="w-4 h-4 text-gray-600 dark:text-gray-400" />
           </a>
         )}
       </div>
