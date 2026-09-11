@@ -88,7 +88,7 @@ const ExCom = () => {
 
                   {/* ── OTHER POSITIONS — 2 positions per row ── */}
                   {pairedPositions.map((pair, rowIdx) => (
-                    <div key={rowIdx} className="grid grid-cols-2 gap-8">
+                    <div key={rowIdx} className={`grid gap-8 ${pair.length === 1 ? 'grid-cols-1 max-w-sm' : 'grid-cols-2'}`}>
                       {pair.map(([posTitle, { members: posMembers }]) => (
                         <div key={posTitle}>
                           {/* Position heading */}
